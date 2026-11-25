@@ -25,6 +25,22 @@ display = tk.Entry(
 display.grid(row=1, column=0, columnspan=4, padx=10, pady=20, ipadx= 30, ipady = 9)
 
 
+#оформление цифры
+
+button_style = {
+    "font": ("Times New Roman", 20, "bold"),
+    "width": 5,
+    "height": 2,
+    "bg": "#DDE9D9",
+    "fg": "#9C3568",
+    "activebackground": "#D5859F",
+    "activeforeground": "white",
+    "relief": tk.RAISED,
+    "borderwidth": 4,
+    "highlightthickness": 3,
+    "highlightbackground": "#4A0F22",
+    "highlightcolor": "#9E6D7C"
+}
 
     
 btn7 = tk.Button(root, text="7", command=lambda: click("7"), **button_style)
