@@ -74,6 +74,22 @@ btn0 = tk.Button(root, text="0", command=lambda: click("0"), **button_style)
 btn0.grid(row=5, column=1, padx=5, pady=5)
 
 
+#оформление операций
+
+button_style2 = {
+    "font": ("Times New Roman", 20, "bold"),
+    "width": 5,
+    "height": 2,
+    "bg": "#FCF9DB",
+    "fg": "#9C3568",
+    "activebackground": "#D5859F",
+    "activeforeground": "white",
+    "relief": tk.RAISED,
+    "borderwidth": 4,
+    "highlightthickness": 3,
+    "highlightbackground": "#4A0F22",
+    "highlightcolor": "#9E6D7C"
+}
 
 btn_plus = tk.Button(root, text="+", command=lambda: operation("+"), **button_style2)
 btn_plus.grid(row=5, column=3, padx=5, pady=5)
