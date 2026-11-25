@@ -24,7 +24,6 @@ display = tk.Entry(
     state="readonly")
 display.grid(row=1, column=0, columnspan=4, padx=10, pady=20, ipadx= 30, ipady = 9)
 
-
 #оформление цифры
 
 button_style = {
@@ -41,6 +40,7 @@ button_style = {
     "highlightbackground": "#4A0F22",
     "highlightcolor": "#9E6D7C"
 }
+
 
 def click(number):
     global expression
@@ -84,7 +84,6 @@ btn3.grid(row=4, column=2, padx=5, pady=5)
 btn0 = tk.Button(root, text="0", command=lambda: click("0"), **button_style)
 btn0.grid(row=5, column=1, padx=5, pady=5)
 
-
 #оформление операций
 
 button_style2 = {
@@ -115,6 +114,7 @@ def operation(sign):
     display.insert(0, value+sign)
     
     display['state'] = "readonly"
+    
 
 btn_plus = tk.Button(root, text="+", command=lambda: operation("+"), **button_style2)
 btn_plus.grid(row=5, column=3, padx=5, pady=5)
@@ -143,6 +143,12 @@ btn_result = tk.Button(root, text="=", command=result, **button_style2)
 btn_result.grid(row=5, column=2, padx=5, pady=5)
 
 
+def bt_clear():
+    global expression
+    expression = ""
+    display['state'] = "normal"
+    display.delete(0, tk.END)
+    display['state'] = "readonly"
     
 btn_c = tk.Button(root, text="C", command=lambda: bt_clear(), **button_style2)
 btn_c.grid(row=5, column=0, padx=5, pady=5)
