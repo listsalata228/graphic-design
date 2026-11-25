@@ -102,6 +102,20 @@ button_style2 = {
     "highlightcolor": "#9E6D7C"
 }
 
+def operation(sign):
+    global expression
+    expression = ""
+    display['state'] = "normal"
+    value = display.get()
+    
+    if value[-1] in '-+/*':
+        value = value[:-1]
+        
+    display.delete(0,tk.END)
+    display.insert(0, value+sign)
+    
+    display['state'] = "readonly"
+
 btn_plus = tk.Button(root, text="+", command=lambda: operation("+"), **button_style2)
 btn_plus.grid(row=5, column=3, padx=5, pady=5)
 
@@ -114,7 +128,16 @@ btn_mult.grid(row=3, column=3, padx=5, pady=5)
 btn_devide = tk.Button(root, text="/", command=lambda: operation("/"), **button_style2)
 btn_devide.grid(row=2, column=3, padx=5, pady=5)
 
-
+def result():
+    global expression
+    expression = ""
+    display['state'] = "normal"
+    
+    value = display.get()
+    display.delete(0, tk.END)
+    display.insert(0,eval(value))
+    
+    display['state'] = "readonly"
 
 btn_result = tk.Button(root, text="=", command=result, **button_style2)
 btn_result.grid(row=5, column=2, padx=5, pady=5)
