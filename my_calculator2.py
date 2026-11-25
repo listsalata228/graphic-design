@@ -42,6 +42,17 @@ button_style = {
     "highlightcolor": "#9E6D7C"
 }
 
+def click(number):
+    global expression
+    expression = ""
+    display['state'] = "normal"
+    
+    value = display.get() + str(number)
+    display.delete(0,tk.END)
+    display.insert(0, value)
+    
+    display['state'] = "readonly"
+
     
 btn7 = tk.Button(root, text="7", command=lambda: click("7"), **button_style)
 btn7.grid(row=2, column=0, padx=5, pady=5)
