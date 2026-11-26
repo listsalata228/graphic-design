@@ -19,7 +19,7 @@ LABELS = ("ФИО", "Возраст", "Пол", "Рост, см", "Вес, кг"
 
 
 def apply_theme(root):
-    """Настройка общего оформления приложения"""
+    """Настройка общего оформления приложения."""
     root.configure(bg=THEME_BG)
     root.option_add("*background", THEME_BG)
     root.option_add("*foreground", THEME_FG)
@@ -124,7 +124,7 @@ class Application:
 
         apply_theme(root)
 
-        #кнопка перехода к пациентам
+        # Кнопка перехода к пациентам
         self.w = tk.Button(
             root,
             text="Мои пациенты",
@@ -136,7 +136,7 @@ class Application:
         )
         self.w.place(x=155, y=120, width=210, height=40)
 
-        #кнопка перехода к статистике
+        # Кнопка перехода к статистике
         self.button2 = tk.Button(
             root,
             text="Сводная статистика",
@@ -148,7 +148,7 @@ class Application:
         )
         self.button2.place(x=155, y=190, width=210, height=40)
 
-        #цветы
+        # Цветочное оформление
         self.label1 = tk.Label(
             root,
             text="❀ ✿  ❀  ✿  ❀  ✿  ❀  ✿  ❀  ✿  ❀  ✿  ❀  ✿  ❀  ",
@@ -157,7 +157,7 @@ class Application:
         )
         self.label1.place(x=0, y=10, width=520, height=70)
 
-        #надпись для открытия окна жалоб
+        # Надпись для открытия окна жалобы
         self.label2 = tk.Label(
             root,
             text="ваши жалобы",
@@ -168,7 +168,7 @@ class Application:
 
         self.label2.bind("<Button-1>", self.show_complaint)
 
-    #открытие окна жалобы
+    # Открытие окна жалобы
     def show_complaint(self, event=None):
         complaint_window = tk.Toplevel(self.root)
         complaint_window.title("Жалоба")
@@ -176,7 +176,7 @@ class Application:
         complaint_window.configure(bg="red")
         complaint_window.resizable(False, False)
 
-        #размещение окна по центру
+        # Размещение окна по центру главного окна
         self.root.update_idletasks()
 
         x = self.root.winfo_x() + (520 - 300) // 2
@@ -184,7 +184,7 @@ class Application:
 
         complaint_window.geometry(f"300x180+{x}+{y}")
 
-        #надпись НЕТ
+        # Надпись НЕТ
         no_label = tk.Label(
             complaint_window,
             text="НЕТ",
@@ -194,7 +194,7 @@ class Application:
         )
         no_label.pack(expand=True)
 
-        #кнопка закрытия
+        # Кнопка закрытия
         close_button = tk.Button(
             complaint_window,
             text="Закрыть",
